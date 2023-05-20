@@ -42,6 +42,9 @@ local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 ```
 
+*Notice that `missing_ranges.rs` has a buffer number of **10** in the bufferline
+and a buffer number of **18** in the buffers picker.*
+
 ![](images/telescope-buffers.png)
 
 ### After - Treble Buffers
@@ -50,6 +53,9 @@ vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 local treble = require('treble')
 vim.keymap.set('n', '<leader>fb', treble.buffers(), {})
 ```
+
+*Notice that `missing_ranges.rs` has a consistent buffer number of **10** in
+the bufferline and the buffers picker.*
 
 ![](images/treble-buffers.png)
 
