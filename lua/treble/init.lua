@@ -14,6 +14,17 @@ local function list_buffers()
   return utils.get_valid_buffers()
 end
 
+local function sort_buffers(buffer_numbers)
+  local state = require("bufferline.state")
+
+  local result = buffer_numbers
+  if state.custom_sort ~= nil then
+    result = state.custom_sort
+  end
+
+  return result
+end
+
 local function get_buffer_name(buffer_number)
   return vim.api.nvim_buf_get_name(buffer_number)
 end
@@ -27,10 +38,10 @@ local function buffer_icons(buffer_name)
   return devicons.get_icon(buffer_name, string.match(buffer_name, "%a+$"), { default = true })
 end
 
-local function make_buffer_entries(buffer_numbers)
+local function make_buffer_entries(sorted_buffers)
 
   local results = {}
-  for buffer_index, buffer_number in ipairs(buffer_numbers) do
+  for buffer_index, buffer_number in ipairs(sorted_buffers) do
     local buffer_name = get_buffer_name(buffer_number)
     local file_name = buffer_file_name(buffer_name)
     local devicons, devicons_highlight = buffer_icons(buffer_name)
@@ -64,7 +75,8 @@ local function buffers(opts)
   opts = opts or {}
 
   local buffer_numbers = list_buffers()
-  local buffer_entries = make_buffer_entries(buffer_numbers)
+  local sorted_buffers = sort_buffers(buffer_numbers)
+  local buffer_entries = make_buffer_entries(sorted_buffers)
   local displayer = entry_display.create {
     separator = " ",
     items = {
