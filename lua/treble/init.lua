@@ -2,13 +2,6 @@ local M = {}
 
 local vim = vim
 
-local pickers = require("telescope.pickers")
-local entry_display = require("telescope.pickers.entry_display")
-local actions = require("telescope.actions")
-local action_state = require("telescope.actions.state")
-local finders = require("telescope.finders")
-local config = require("telescope.config")
-
 local function list_buffers()
   local utils = require("bufferline.utils")
   return utils.get_valid_buffers()
@@ -73,6 +66,13 @@ end
 
 local function buffers(opts)
   opts = opts or {}
+
+  local pickers = require("telescope.pickers")
+  local entry_display = require("telescope.pickers.entry_display")
+  local actions = require("telescope.actions")
+  local action_state = require("telescope.actions.state")
+  local finders = require("telescope.finders")
+  local config = require("telescope.config")
 
   local buffer_numbers = list_buffers()
   local sorted_buffers = sort_buffers(buffer_numbers)
