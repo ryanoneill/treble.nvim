@@ -18,8 +18,16 @@ local function sort_buffers(buffer_numbers)
   return result
 end
 
+local function is_empty(s)
+  return s == nil or s == ''
+end
+
 local function get_buffer_name(buffer_number)
-  return vim.api.nvim_buf_get_name(buffer_number)
+  local name = vim.api.nvim_buf_get_name(buffer_number)
+  if is_empty(name) then
+    name = "[No Name]"
+  end
+  return name
 end
 
 local function buffer_file_name(buffer_name)
