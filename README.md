@@ -13,20 +13,34 @@ three parts are
 `treble.nvim` is a Neovim plugin which builds a custom `telescope.nvim` picker
 populated by data directly from `bufferline.nvim`. Numbering of buffers within
 the custom picker are intended to match the relative numbering of buffers within
-the bufferline instead of using the unique `bufnr` from Neovim. 
+the bufferline instead of using the unique `bufnr` from Neovim.
 
 ## Installation
 
 The `treble.nvim` plugin is intended for use by folks already using both
-`bufferline.nvim` and `telescope.nvim` as plugins. 
+`bufferline.nvim` and `telescope.nvim` as plugins.
 
 ```Lua
 -- using lazy.nvim
-{'ryanoneill/treble.nvim', dependencies = { 
+{'ryanoneill/treble.nvim', dependencies = {
   {'akinsho/bufferline.nvim', version = '*', dependencies = 'nvim-tree/nvim-web-devicons'},
   {'nvim-telescope/telescope.nvim', tag = '0.1.1', dependencies = 'nvim-lua/plenary.nvim'}
 }}
 ```
+
+### Verifying Installation
+
+To verify that `treble.nvim` and its required dependencies, `bufferline.nvim`
+and `telescope.nvim` are installed correctly, run the *checkhealth* command:
+
+```viml
+:checkhealth treble
+```
+
+If all is good, the *checkhealth* command for `treble.nvim` will run, and an
+`OK` will be displayed for both required dependencies as in the following screenshot.
+
+![](images/treble-checkhealth-ok.png)
 
 ## Usage
 
