@@ -22,10 +22,40 @@ The `treble.nvim` plugin is intended for use by folks already using both
 
 ```Lua
 -- using lazy.nvim
-{'ryanoneill/treble.nvim', dependencies = {
-  {'akinsho/bufferline.nvim', version = '*', dependencies = 'nvim-tree/nvim-web-devicons'},
-  {'nvim-telescope/telescope.nvim', tag = '0.1.1', dependencies = 'nvim-lua/plenary.nvim'}
-}}
+{
+  'ryanoneill/treble.nvim',
+  dependencies = {
+    {
+      'akinsho/bufferline.nvim',
+      version = '*',
+      dependencies = 'nvim-tree/nvim-web-devicons'
+    },
+    {
+      'nvim-telescope/telescope.nvim',
+      tag = '0.1.1',
+      dependencies = 'nvim-lua/plenary.nvim'
+    }
+  }
+}
+```
+
+```Lua
+-- using packer.nvim
+use {
+  'ryanoneill/treble.nvim',
+  requires = {
+    {
+      'akinsho/bufferline.nvim',
+      version = '*',
+      requires = { 'nvim-tree/nvim-web-devicons' }
+    },
+    {
+      'nvim-telescope/telescope.nvim',
+      tag = '0.1.1',
+      requires = { 'nvim-lua/plenary.nvim' }
+    }
+  }
+}
 ```
 
 ### Verifying Installation
