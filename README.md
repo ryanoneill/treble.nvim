@@ -103,3 +103,12 @@ the bufferline and the buffers picker.*
 
 ![](images/treble-buffers.png)
 
+## Issues, Requests, and Contributions
+
+Filing issues is welcomed and encouraged. Bugs will receive the highest
+priority. On the other hand, feature requests are unlikely to be implemented
+and pull requests will be politely declined unless one of the following is true:
+* The feature is squarely within the existing scope of `treble.nvim`.
+* The feature would clearly be useful to anyone potentially using this plugin and is buffer related.
+* The feature would be useful by me.
+
